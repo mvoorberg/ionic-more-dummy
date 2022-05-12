@@ -12,7 +12,8 @@ export interface Message {
   providedIn: 'root'
 })
 export class DataService {
-  public messages: Message[] = [
+  private messages: Message[] = [];
+  private _messages: Message[] = [
     {
       fromName: 'Matt Chorsey',
       subject: 'New event: Trip to Vegas',
@@ -71,7 +72,22 @@ export class DataService {
     }
   ];
 
-  constructor() { }
+  constructor() {
+    let i = 0;
+    this._messages.forEach((m) => {
+      const mClone = { ...m }
+      mClone.fromName += ` - ${i}`;
+      mClone.id = i++;
+      this.messages.push(mClone)
+    })
+    // add 'em twice!
+    this._messages.forEach((m) => {
+      const mClone = { ...m }
+      mClone.fromName += ` - ${i}`;
+      mClone.id = i++;
+      this.messages.push(mClone)
+    })
+  }
 
   public getMessages(): Message[] {
     return this.messages;
