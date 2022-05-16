@@ -6,6 +6,8 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BosScrollIndicatorDirective } from './bos-scroll-indicator.directive';
+import { HighlightDirective } from './highlight.directive';
 
 @NgModule({
   declarations: [AppComponent],
